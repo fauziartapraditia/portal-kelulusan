@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /kelulusan/
+
+# Redirect trailing slashes
+RewriteRule ^(.*)/$ $1 [R=301,L]
+
+# Route to index.php if file or directory doesn't exist
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
